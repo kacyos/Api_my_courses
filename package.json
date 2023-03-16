@@ -1,12 +1,13 @@
 {
   "name": "my_courses",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/server.js",
   "author": "Cacio de Castro",
   "license": "MIT",  
   "scripts": {
     "dev": "nodemon src/server.js",
-    "migration": "sequelize db:migrate"    
+    "migration": "sequelize db:migrate", 
+    "start": "node src/server.js"   
   },
   "dependencies": {
     "cors": "^2.8.5",
