@@ -6,7 +6,7 @@
   "license": "MIT",  
   "scripts": {
     "dev": "nodemon src/server.js",
-    "swagger-autogen": "node swagger.js"
+    "vercel-build": "npm run sequelize bd:migrate && npm run sequelize db:seed:all && npm run build"    
   },
   "dependencies": {
     "aws-sdk": "2.390.0",
