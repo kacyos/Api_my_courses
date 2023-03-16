@@ -6,7 +6,7 @@
   "license": "MIT",  
   "scripts": {
     "dev": "nodemon src/server.js",
-    "vercel-build": "npm run sequelize db:migrate && npm run sequelize db:seed:all && npm run build"    
+    "vercel-build": "npm run sequelize db:migrate"    
   },
   "dependencies": {
     "aws-sdk": "2.390.0",
