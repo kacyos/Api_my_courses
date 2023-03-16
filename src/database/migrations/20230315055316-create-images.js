@@ -3,17 +3,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("courses", {
+    await queryInterface.createTable("images", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      category_id: {
+      course_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "categories", key: "id" },
+        references: { model: "courses", key: "id" },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
@@ -21,8 +21,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      description: {
+      size: {
         type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      key: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      url: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -36,6 +45,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("courses");
+    await queryInterface.dropTable("images");
   },
 };

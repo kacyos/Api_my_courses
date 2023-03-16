@@ -16,8 +16,9 @@ class Courses extends Model {
   static associate(models) {
     this.belongsTo(models.Categories, {
       foreignKey: "category_id",
-      as: "courses",
+      as: "category",
     });
+    this.hasOne(models.Images, { foreignKey: "course_id", as: "image" });
   }
 }
 

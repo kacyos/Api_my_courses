@@ -1,0 +1,88 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Course API",
+    "version": "1.0.0",
+    "description": "Course API Documentation"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Course API"
+    }
+  ],
+  "paths": {
+    "/category": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a new category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/category"
+              },
+              "examples": {                
+                "category": {
+                  "value": {
+                    "name": "Backend"
+                  }
+                }
+              }
+            }
+            
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"object",
+                  "$ref": "#/components/schemas/Create category response"
+                }
+              }
+            }
+          }         
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "category": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        }
+      },
+
+      "Create category response": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "name": { "type": "string"},
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" }
+        }
+      },
+
+      "Category Response": {
+        "type": "array",
+        "properties": {
+          "id": { "type": "number"},
+          "name": { "type": "string"},
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" }
+        }
+      }
+    }
+  }
+
+}
